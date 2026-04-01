@@ -40,10 +40,10 @@ Roels can be applied to groups, users, service principals, and managed identitie
 
 -Apply and manage tags on resources
 
-Manage resource groups
+-Manage resource groups
 
-Manage subscriptions
+-Manage subscriptions
 
-Manage costs by using alerts, budgets, and Azure Advisor recommendations
+-Manage costs by using alerts, budgets, and Azure Advisor recommendations
 
-Configure management groups
+-Configure management groups
