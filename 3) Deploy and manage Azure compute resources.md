@@ -6,6 +6,13 @@
 #### Modify an existing Bicep file
 
 #### Deploy resources by using an Azure Resource Manager template or a Bicep file
+> `New-AzResourceGroupDeployment`
+
+Virtual machines are deployed to resource groups, so you must run the New-AzResourceGroupDeployment cmdlet.  
+There are a variety of places a template file can be pulled from:  
+> `-TemplateUri` if web based  
+> `-Templatefile` if stored locally  
+> `-TemplateSpecId` to specify a template that was save to Azure as a template spec.   
 
 #### Export a deployment as an Azure Resource Manager template or convert an Azure Resource Manager template to a Bicep file
 
@@ -19,8 +26,13 @@
 #### Manage virtual machine sizes
 
 #### Manage virtual machine disks
+!! Data Disks can be detached whilst the VM is on, OS Disks cannot !!  
 
-#### Deploy virtual machines to availability zones and availability sets
+
+#### Deploy virtual machines to availability zones and availability sets  
+
+Planned/scheduled maintenance → update domains (one taken down at a time)  
+Unplanned hardware failure → fault domains (rack/power failure)  
 
 #### Deploy and configure an Azure Virtual Machine Scale Sets
 
@@ -32,6 +44,7 @@
 #### Provision a container by using Azure Container Apps
 
 #### Manage sizing and scaling for containers, including Azure Container Instances and Azure Container Apps
+An Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage.  
 
 # Create and configure Azure App Service
 #### Provision an App Service plan
