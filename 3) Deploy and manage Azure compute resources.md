@@ -47,7 +47,15 @@ Unplanned hardware failure → fault domains (rack/power failure)
 An Azure container instance (Docker container) can mount Azure File Storage shares as directories and use them as persistent storage.  
 
 # Create and configure Azure App Service
-#### Provision an App Service plan
+#### Provision an App Service plan  
+| Tier | Custom Domain | SSL | Scale Out (instances) | Storage | Auto-scale | Use Case |
+|------|--------------|-----|----------------------|---------|------------|----------|
+| **Free** | ❌ | ❌ | 1 | 1 GB | ❌ | Dev/test only |
+| **Shared** | ✅ | ❌ | 1 | 1 GB | ❌ | Dev/test only |
+| **Basic** | ✅ | ✅ | Up to 3 | 10 GB | ❌ | Low traffic prod |
+| **Standard** | ✅ | ✅ | Up to 10 | 50 GB | ✅ | Production |
+| **Premium** | ✅ | ✅ | Up to 30 | 250 GB | ✅ | High scale prod |
+| **Isolated** | ✅ | ✅ | Up to 100 | 1 TB | ✅ | VNet isolated |  
 
 #### Configure scaling for an App Service plan
 
