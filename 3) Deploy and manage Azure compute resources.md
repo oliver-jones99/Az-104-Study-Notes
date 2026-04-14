@@ -17,12 +17,18 @@ There are a variety of places a template file can be pulled from:
 You can add a copy element into an ARM template, this acts as a loop in various situations.
 
 #### Export a deployment as an Azure Resource Manager template or convert an Azure Resource Manager template to a Bicep file  
-> 'Save-AzDeploymentTemplate'
+> `Save-AzDeploymentTemplate`
 Exports an existing Azure deployment's ARM template and saves it to a local JSON file.
 
 # Create and configure virtual machines
 #### Create a virtual machine
 Spot Instances: Azure Spot instances allow you to provision virtual machines at a reduced cost, but these virtual machines can be stopped by Azure when Azure needs the capacity for other pay-as-you-go workloads, or when the price of the spot instance exceeds the maximum price that you have set.  
+You can assign multiple NICs to the same VM, this would allow it to connect to multiple subnets, but they must be on the same VNet.  
+
+If assigning further NICS to access other subnets these will usually need to be configured in the VMs. If using windows / Powershell these are the commands:  
+> `route add (subnet address IP) 10.0.2.0 MASK 255.255.255.0 (Gateway IP) 10.0.2.1 -p`
+
+!! The subnet Gateway IP in Azure is usually the first available IP in the address range, the -p flag ensures the route persists through reboots!!
 #### Configure encryption at host for Azure virtual machines
 
 #### Move a virtual machine to another resource group, subscription, or region
