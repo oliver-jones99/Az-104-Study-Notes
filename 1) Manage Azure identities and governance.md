@@ -1,7 +1,8 @@
 # Manage Azure identities and governance (20–25%)
-## Resources:
--[John Savil Identity](https://www.youtube.com/watch?v=megA6BPpYqo&list=PLlVtbbG169nGlGPWs9xaLKT1KfwqREHbs&index=6)
 
+## Resources:
+
+-[John Savil Identity](https://www.youtube.com/watch?v=megA6BPpYqo&list=PLlVtbbG169nGlGPWs9xaLKT1KfwqREHbs&index=6)
 
 ## Manage Microsoft Entra users and groups
 
@@ -21,22 +22,26 @@ Security groups for access control and 365 groups for collaboration.
 Can create dynamic groups where users are added through rules.
 
 #### -Manage licenses in Microsoft Entra ID
+
 Licenses can be assigned directly to users or through groups.
 
 Exam Gotcha:
 Users need a Usage Location assigned before a license can be applied, this is becasue ot all Microsoft 365 services are available in all locations
 
 #### -Manage external users
+
 B2B, authenticates through the external users tenants, for cross company collaboration.
 External ID, aimed at customers and usually kept in a seperate tenant from your own business tenant.
 
 Can use External Collabortation settings to specify which roles in your organization can invite external users for B2B collaboration.
 
 #### -Configure self-service password reset (SSPR)
+
 Need Entra P1 or P2 license for this.
 Need 1 or 2 auth methods.
 
 ## Manage access to Azure resources
+
 #### -Manage built-in Azure roles
 
 #### -Assign roles at different scopes
@@ -46,10 +51,14 @@ Roles can be applied to groups, users, service principals, and managed identitie
 #### -Interpret access assignments
 
 ## Manage Azure subscriptions and governance
+
 #### -Implement and manage Azure Policy
 
 #### -Configure resource locks
+
 2 Types, ReadOnly and CanNotDelete, can be applied at subscription, resource group, or resource level, and are inhereted down.
+
+Delete locks can be applied to subscriptions, resource groups, and individual resources.
 
 Exam Gotcha: a Delete Lock prevents accidental deletion of resources within the resource group while still allowing the resource group itself to be deleted once it is empty.
 
