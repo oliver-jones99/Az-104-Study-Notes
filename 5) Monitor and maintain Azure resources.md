@@ -1,5 +1,13 @@
 # Monitor resources in Azure
 
+Azure Monitor has 2 main monitoring features: Metrics and Logs.
+
+Metrics are numerical values collected at predetermined intervals to describe some aspect of a system. Azure Monitor Metrics automatically monitors a predefined set of metrics for every Azure VM, and retains the data for 93 days with some exceptions.
+
+Logs are system events containing time stamps and different types of data. Azure automatically records activity logs for all Azure resources. Azure Monitor doesn't collect logs by default, but you can configure Azure Monitor Logs to collect from any Azure resource. Azure Monitor Logs stores log data in a Log Analytics workspace for querying and analysis.
+
+You can create Data collection rules which are then applied to resources: Data collection rules (DCRs) are sets of instructions supporting data collection in Azure Monitor. They provide a consistent and centralized way to define and customize different data collection scenarios.
+
 #### Interpret metrics in Azure Monitor
 
 #### Configure log settings in Azure Monitor
@@ -21,7 +29,7 @@ Network Watcher has several tools:
 2. NSG Diagnostics: The Network Security Group Diagnostics tool provides detailed information to understand and debug the security configuration of your network. For a given source-destination pair, network security group diagnostics returns all network security groups that will be traversed, the rules that will be applied in each network security group, and the final allow/deny status for the flow.
 
 3. Next Hop: provides the next hop from the target virtual machine to the destination IP address.  
-   !! You can also get Next Hop information in the Effective Routes blade on the NIC for all the address prefixes, also lets you know which user denifed route causes it. ""
+   !Note! You can also get Next Hop information in the Effective Routes blade on the NIC for all the address prefixes, also lets you know which user denifed route causes it.
 
 4. Effective Security Rules: Combined view of all NSGs applying to a NIC
 
@@ -49,13 +57,33 @@ Network Watcher has several tools:
 
 #### Create a Recovery Services vault
 
+The Recovery Services Vault is where you can store backups of VMs, SQL databases, Azure File Shares, and Site Recovery. Older
+
 #### Create an Azure Backup vault
+
+The Backup Vault supports less work loads but is growing in scope. It stores the backups of Azure Disks, Blobs, Databases for PostreSQL, and AKS Backups.
+
+The exam rule of thumb: if the question involves VM backup, MARS agents, or Site Recovery — it's an RSV. If it involves managed disks or blobs as the backup target — it's a Backup Vault.
 
 #### Create and configure a backup policy
 
 Backups are saved for 30 days by default
 
 #### Perform backup and restore operations by using Azure Backup
+
+| Restore Options               | What it does                                                                                                                                                                                                                                                                         |
+| :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create a new VM               | Recreates the VM from a restore point, must be in same region as source VM.                                                                                                                                                                                                          |
+| Restore Disk                  | Restores a VM disk, which can then be used to create a new VM. The disks are copied to the resource group you specify                                                                                                                                                                |
+| Replace Existing (Disk on VM) | You can restore a disk and use it to replace a disk on the existing VM. Azure Backup takes a snapshot of the existing VM before replacing the disk and stores it in the staging location you specify. **The current VM must exist. You can't use this option if the VM is deleted.** |
+| Cross-region Restore          | Restores into a paired region. Only works if GRS was enabled on the vault.                                                                                                                                                                                                           |
+| Recover Files                 | Recovers individual files from a recovery point by mounting the snapshot on the target machine using the iSCSI initiator in the machine.                                                                                                                                             |
+
+Exam Gotchas:
+
+1. Cross-region restore requires GRS vault, not LRS.
+2. File recovery requires downloading a script and running it on the target VM
+3. Replace existing only works if the original VM still exists
 
 #### Configure Azure Site Recovery for Azure resources
 
