@@ -14,6 +14,35 @@ You can create Data collection rules which are then applied to resources: Data c
 
 #### Query and analyze logs in Azure Monitor
 
+Filtering & Shaping
+
+| Operator   | What it does                               | Example                                      |
+| ---------- | ------------------------------------------ | -------------------------------------------- |
+| `where`    | Filter rows by condition (≈ SQL WHERE)     | `Heartbeat \| where Computer == "VM1"`       |
+| `project`  | Select or rename columns                   | `SecurityEvent \| project Account, Activity` |
+| `extend`   | Add a new calculated column, keep existing | `Perf \| extend MBFree = CounterValue/1024`  |
+| `top`      | Return N rows sorted by a column           | `SecurityEvent \| top 10 by TimeGenerated`   |
+| `sort by`  | Order rows asc or desc                     | `Heartbeat \| sort by TimeGenerated desc`    |
+| `distinct` | Return unique values of a column           | `SecurityEvent \| distinct Account`          |
+
+Aggregation
+
+| Operator        | What it does                                    | Example                                           |
+| --------------- | ----------------------------------------------- | ------------------------------------------------- |
+| `summarize`     | Group & aggregate (≈ SQL GROUP BY)              | `SecurityEvent \| summarize count() by Account`   |
+| `count()`       | Count rows — used inside summarize              | `Heartbeat \| summarize count() by Computer`      |
+| `dcount()`      | Count distinct values                           | `SecurityEvent \| summarize dcount(Account)`      |
+| `avg() / sum()` | Average or total of a numeric column            | `Perf \| summarize avg(CounterValue) by Computer` |
+| `bin()`         | Round timestamps into buckets (for time charts) | `\| summarize count() by bin(TimeGenerated, 1h)`  |
+
+Time & Joins
+
+| Operator | What it does                               | Example                               |
+| -------- | ------------------------------------------ | ------------------------------------- |
+| `ago()`  | Relative time filter — most common on exam | `where TimeGenerated > ago(24h)`      |
+| `join`   | Merge two tables on a key column           | `TableA \| join (TableB) on Computer` |
+| `union`  | Combine rows from multiple tables          | `union SecurityEvent, Syslog`         |
+
 #### Set up alert rules, action groups, and alert processing rules in Azure Monitor
 
 An alert rule in Azure Monitor is used to detect a specific condition, for example when a virtual machine is connected to VNet1. The alert rule monitors the relevant activity or resource signal and triggers when the defined condition occurs. An action group defines what happens when the alert fires, such as sending an email notification to an administrator. Therefore, the alert rule detects the event, and the action group performs the notification action.
