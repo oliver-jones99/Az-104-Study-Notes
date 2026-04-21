@@ -12,6 +12,10 @@ You can create Data collection rules which are then applied to resources: Data c
 
 #### Configure log settings in Azure Monitor
 
+Create a Log Analytics Workspace, here is where the logs will be stored.  
+Then we create a Data Collection Rule (DCR), This is where we choose what is collecting, we can filter by all sorts of levels, including warning level.   
+During DCR Creation it will automatically push the monitoring agent to VMs.  
+
 #### Query and analyze logs in Azure Monitor
 
 Filtering & Shaping
