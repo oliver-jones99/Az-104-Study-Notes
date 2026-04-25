@@ -107,6 +107,9 @@ Archive not available on ZRS and GZRS.
 Tiers are set per blob, the accounts tier is just what each blob defaults to.
 
 #### -Configure soft delete for blobs and containers
+Soft delete is configured at the storage account level, not per-container or per-blob.  
+Default state is disabled — you must explicitly enable it.  
+
 
 #### -Configure snapshots and soft delete for Azure Files
 
