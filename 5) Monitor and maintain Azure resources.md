@@ -13,8 +13,8 @@ You can create Data collection rules which are then applied to resources: Data c
 #### Configure log settings in Azure Monitor
 
 Create a Log Analytics Workspace, here is where the logs will be stored.  
-Then we create a Data Collection Rule (DCR), This is where we choose what is collecting, we can filter by all sorts of levels, including warning level.   
-During DCR Creation it will automatically push the monitoring agent to VMs.  
+Then we create a Data Collection Rule (DCR), This is where we choose what is collecting, we can filter by all sorts of levels, including warning level.  
+During DCR Creation it will automatically push the monitoring agent to VMs.
 
 #### Query and analyze logs in Azure Monitor
 
@@ -50,6 +50,8 @@ Time & Joins
 #### Set up alert rules, action groups, and alert processing rules in Azure Monitor
 
 An alert rule in Azure Monitor is used to detect a specific condition, for example when a virtual machine is connected to VNet1. The alert rule monitors the relevant activity or resource signal and triggers when the defined condition occurs. An action group defines what happens when the alert fires, such as sending an email notification to an administrator. Therefore, the alert rule detects the event, and the action group performs the notification action.
+
+The maximum number of notifications which can be sent through an action group is 100 per hour, however voice and SMS are capped at 1 every 5 minutes, meaning the maximum for them is 12 per hour. what actually drives these actions to be triggered is the alert rule.
 
 #### Configure and interpret monitoring of virtual machines, storage accounts, and networks by using Azure Monitor Insights
 

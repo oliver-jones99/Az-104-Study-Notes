@@ -2,6 +2,8 @@
 
 ## Configure access to storage
 
+Storage Explorer uses listKeys by default → needs management plane write permission even for read-only browsing. ReadOnly lock or Read role blocks listKeys.
+
 #### -Configure Azure Storage firewalls and virtual networks
 
 Azure File Shares can be accessed through the Server Message Block (SMB) protocol. This uses TCP and therefore travels through port 445.
@@ -12,6 +14,10 @@ Shared access signature tokens can grant highly customisable and restricted righ
 Can control what parts of the storage account, permissions, versioning, start and end time, and even allowed IP ranges.  
 Cannot see token once the page has been shut.  
 !! These cannot be revoked for the storage account once created. to have a revokable access method read below !!
+
+For accessing through the CLI:  
+Tool/access → Infrastructure (container) → Data (blob) → Access token (SAS) → Hand off URL .
+You use the tool (Azure File Explorer) before selecting the container.
 
 #### -Configure stored access policies
 
@@ -90,6 +96,8 @@ Only replicates Blobs.
 
 #### -Create and configure a file share in Azure Files
 
+When connecting a file share to a VM, you need to ensure that the SMB port (445) is open otherwise you'll get a Error 67 message.
+
 #### -Create and configure a container in Azure Blob Storage
 
 #### -Configure storage tiers
@@ -107,9 +115,9 @@ Archive not available on ZRS and GZRS.
 Tiers are set per blob, the accounts tier is just what each blob defaults to.
 
 #### -Configure soft delete for blobs and containers
-Soft delete is configured at the storage account level, not per-container or per-blob.  
-Default state is disabled — you must explicitly enable it.  
 
+Soft delete is configured at the storage account level, not per-container or per-blob.  
+Default state is disabled — you must explicitly enable it.
 
 #### -Configure snapshots and soft delete for Azure Files
 

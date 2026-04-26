@@ -54,6 +54,9 @@ Roles can be applied to groups, users, service principals, and managed identitie
 
 #### -Implement and manage Azure Policy
 
+To administer Azure Policy through a CLI, `Microsoft.PolicyInsights` must be registered in your Subscription.  
+Microsoft.PolicyInsights must be registered to query compliance state and trigger remediation — without it, Policy is write-only.
+
 #### -Configure resource locks
 
 2 Types, ReadOnly and CanNotDelete, can be applied at subscription, resource group, or resource level, and are inhereted down.

@@ -2,6 +2,20 @@
 
 #### Interpret an Azure Resource Manager template or a Bicep file
 
+There are 2 types of dependancies in Azure Bicep Files, implicit and explicit.
+
+Explicit relies on the `DependsOn:` property, this means the ressource only gets created if that dependency is fulfilled.
+
+Implicit dependency is created when the resource declaration reference another resource in the same deployment. e.g Copy the properties from this other resource.
+
+Deployment Order:  
+ARM constructs a directed acyclic graph (DAG) from these dependencies and then:
+
+1. Deploys all resources with no dependencies simultaneously (in parallel)
+2. As each resource completes, it unblocks any resources that were waiting on it
+3. Those newly unblocked resources deploy in parallel with each other
+4. This continues until the graph is fully resolved
+
 #### Modify an existing Azure Resource Manager template
 
 #### Modify an existing Bicep file
