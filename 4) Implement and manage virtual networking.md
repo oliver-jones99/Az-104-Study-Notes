@@ -20,6 +20,18 @@ Public IPs can be applied to NICs, Load Balancers, VPC gateways etc
 
 #### Create and configure network security groups (NSGs) and application security groups
 
+ASGs let you group NICs by logical roles, for example asg-webservers.  
+You can reference these groups inside of NSGs instead of hard coding IP addresses.  
+This eases administration as if you need to add VMs or NICS to an NSG, you can just manage the application group.
+
+**Exam Gotchas:**
+
+1. ASGs Must be in the same region as the VMs theyre assigned to.
+2. A Nic can be a member of multiple ASGs.
+3. ASGs are referenced in NSG in / out rules as a source or destination.
+4. You can combine ASG and Subnet-based rules in the same NSG.
+5. An ASG can only contain NICs from a single VNet, determined by whichever VNet the first assigned NIC belongs to.
+
 #### Evaluate effective security rules in NSGs
 
 #### Implement Azure Bastion

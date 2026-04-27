@@ -73,7 +73,7 @@ This Shuts down the VM, Moves it to a new physical host within the same region, 
 #### Deploy virtual machines to availability zones and availability sets
 
 Planned/scheduled maintenance → update domains (one taken down at a time)  
-Unplanned hardware failure → fault domains (rack/power failure)
+Unplanned hardware failure → fault domains think of zone level failure, most regions only have 3 availability zones, which would be the max most times.
 
 #### Deploy and configure an Azure Virtual Machine Scale Sets
 
