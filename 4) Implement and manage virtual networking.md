@@ -12,6 +12,15 @@ Peering is not transitive. If VNet-A peers with VNet-B, and VNet-B peers with VN
 
 Public IPs can be applied to NICs, Load Balancers, VPC gateways etc
 
+Public IPs currently have only the standard SKU.  
+MeasureUp states that IPs cannot be changed / customised and to answer questions using the 2 SKU model even though it has been retired.
+
+SKU's must match with load balancers (standard to standard, or basic to basic).
+MeasureUp states that IPs cannot be changed / customised.
+
+Basic - inbound traffic open.
+Standard - Inbound traffic shut, opened by allow rules in NSG
+
 #### Configure user-defined routes
 
 #### Troubleshoot network connectivity

@@ -122,6 +122,9 @@ Exam Gotchas:
 
 #### Configure Azure Site Recovery for Azure resources
 
+Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual machine. You'll be able to protect your Azure virtual machines having high churning workloads (like databases) using the High Churn option in Azure Site Recovery.  
+**Important**: This feature is available in all regions where Azure Site Recovery is supported and Premium Blob storage accounts are available.
+
 #### Perform a failover to a secondary region by using Site Recovery
 
 #### Configure and interpret reports and alerts for backups
