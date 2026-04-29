@@ -18,6 +18,9 @@ ARM constructs a directed acyclic graph (DAG) from these dependencies and then:
 
 #### Modify an existing Azure Resource Manager template
 
+There is a powershell command for exporting templates:
+`Export-AzResourceGroup -ResourceGroupName <YourResourceGroupName>`
+
 #### Modify an existing Bicep file
 
 #### Deploy resources by using an Azure Resource Manager template or a Bicep file
@@ -78,6 +81,8 @@ Unplanned hardware failure → fault domains think of zone level failure, most r
 #### Deploy and configure an Azure Virtual Machine Scale Sets
 
 # Provision and manage containers in the Azure portal
+
+When you deploy a container group into a VNet, Azure container instanced requires a delegated subnet for them to run in, no other resources can run on this subnet.
 
 #### Create and manage an Azure Container Registry
 

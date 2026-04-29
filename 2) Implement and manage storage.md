@@ -96,6 +96,8 @@ Only replicates Blobs.
 
 #### -Create and configure a file share in Azure Files
 
+The only requirement for mounting an Azure File share as an on-prem SMB is opening the SMB port -445
+
 When connecting a file share to a VM, you need to ensure that the SMB port (445) is open otherwise you'll get a Error 67 message.
 
 #### -Create and configure a container in Azure Blob Storage
