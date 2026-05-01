@@ -54,6 +54,8 @@ If assigning further NICS to access other subnets these will usually need to be 
 
 !! The subnet Gateway IP in Azure is usually the first available IP in the address range, the -p flag ensures the route persists through reboots!!
 
+VMs which are soft deleted are retained fo 30 days
+
 #### Configure encryption at host for Azure virtual machines
 
 #### Move a virtual machine to another resource group, subscription, or region
