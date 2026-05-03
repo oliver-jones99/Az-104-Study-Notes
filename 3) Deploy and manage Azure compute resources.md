@@ -122,3 +122,7 @@ An Azure container instance (Docker container) can mount Azure File Storage shar
 #### Configure networking settings for an App Service
 
 #### Configure deployment slots for an App Service
+
+Deployment slots are what you can use to slowly roll out deployments.
+Requires standard, premium, or isolated tier (not free, shared, or basic)
+Done with an A/B deployment which you can either hot swap or edit the % of traffic which is pushed to each.
