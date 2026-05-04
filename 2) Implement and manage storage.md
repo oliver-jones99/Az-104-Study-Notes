@@ -92,6 +92,20 @@ Only replicates Blobs.
 
 #### -Manage data by using Azure Storage Explorer and AzCopy
 
+**Typed of Authentication for AzCopy:**
+|Service |Entra ID |SAS | Account Key|
+| ------ | ------- | -- | ---------- |
+|Blob |✅ |✅ |✅ |
+|Files (SMB) |❌ |✅ |✅ |
+|Files (NFS) |❌ |❌ |❌ |
+|ADLS |✅ |✅ |✅ |
+
+Account keys are linked with the account and have no granularity.
+
+SMB - Windows Native, more supported.  
+NFS - Linux Native, less features.  
+ NFS = Premium only, LRS/ZRS only, no Backup, no File Sync, no identity auth.
+
 ## Configure Azure Files and Azure Blob Storage
 
 #### -Create and configure a file share in Azure Files
