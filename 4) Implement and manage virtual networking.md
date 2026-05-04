@@ -45,6 +45,8 @@ This eases administration as if you need to add VMs or NICS to an NSG, you can j
 
 #### Implement Azure Bastion
 
+Azure bastion supports a minimum subnet size of /26
+
 #### Configure Network Gateways and VPN Gateways
 
 P2S VPN can be setup to allow individual computers (points) to access your private Azure networks. To achieve this you need to set up a Gateway Subnet in your VNet to house your gateway options (Express Route, VPN gateway which can then house P2S and S2S)  
