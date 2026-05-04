@@ -8,6 +8,8 @@ Logs are system events containing time stamps and different types of data. Azure
 
 You can create Data collection rules which are then applied to resources: Data collection rules (DCRs) are sets of instructions supporting data collection in Azure Monitor. They provide a consistent and centralized way to define and customize different data collection scenarios.
 
+Boot diagnostics cannot be sent to a premium storage account.
+
 #### Interpret metrics in Azure Monitor
 
 #### Configure log settings in Azure Monitor
