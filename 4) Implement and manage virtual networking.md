@@ -2,6 +2,8 @@
 
 #### Create and configure virtual networks and subnets
 
+VNET address ranges cannot be modified, and deleting the address range requires deleting all of the subnets, so to change the address range of of an existing subnet, you should remove the entire VNET and redeploy it.
+
 #### Create and configure virtual network peering
 
 Peering is configured from inside the VNet resource → Settings → Peerings → + Add.
@@ -101,6 +103,10 @@ Three distribution modes are available:
 | Default                             | 5-tuple | Source IP, Source Port, Destination IP, Destination Port, Protocol |
 | Session Persistence (IP Affinity)   | 2-tuple | Source IP, Destination IP                                          |
 | Session Persistence (IP + Protocol) | 3-tuple | Source IP, Destination IP, Protocol                                |
+
+Standard Load Balancer + backend VM trying to reach its own frontend = broken by design.
+
+2 Types of SKU, Basic has been deprecated, Standard allows HTTPS health monitoring whilst basic does not.
 
 #### Troubleshoot load balancing
 
