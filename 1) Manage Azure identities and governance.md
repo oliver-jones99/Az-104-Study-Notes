@@ -50,6 +50,8 @@ Roles can be applied to groups, users, service principals, and managed identitie
 
 #### -Interpret access assignments
 
+Users accessing storage accounts through the storage explorer will need reader at the subscription level, even if they have more permissions at the storage account level. e.g. May have storage account contributer, still needs subscription reader
+
 ## Manage Azure subscriptions and governance
 
 #### -Implement and manage Azure Policy
