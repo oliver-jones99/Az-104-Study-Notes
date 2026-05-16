@@ -78,6 +78,21 @@ Private DNS Zone: Used for internal name resolution within Azure. Not accessible
 
 Azure Private DNS Resolver: It's a managed service that acts as a DNS proxy for hybrid scenarios — specifically when your on-premises network needs to resolve Azure private DNS zones, or when Azure VMs need to resolve on-premises DNS names. It has inbound and outbound endpoints that bridge the two worlds.
 
+##### DNS Record Types:
+
+A (Address) Record: Maps a domain name to an IPV4 address.
+
+AAAA Record: Maps a domain name to an IPV4 address.
+
+CNAME (Canonical Name): Maps a domain or sub domain to another domain.
+Cannot be used at the zone Apex e.g. contoso.com -> microsoft.com
+
+MX (Mail Exchanger): Directs email for a domain to the mail server.
+
+SOA (Start of Authority): Holds zone metadata (primary NS, admin email, serial, refresh/retry/expire timers)
+
+NS (Name Server) Record: NS records tell the world which name servers are authoritative for a domain, so whoever hosts your DNS gives you their NS values and you paste them at your registrar to delegate the domain to them.
+
 |                                | Public DNS Zone                                          | Private DNS Zone                          | DNS Private Resolver                                 |
 | ------------------------------ | -------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------- |
 | **Purpose**                    | Host DNS records for internet-facing domains             | Internal name resolution within Azure     | Bridge between on-premises DNS and Azure private DNS |
